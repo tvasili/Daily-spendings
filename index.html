@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="card">
+        <header class="header">
+            <h1>Expense Tracker</h1>
+            <p class="subtitle">Track, filter, and settle your expenses</p>
+        </header>
+
+        <div id="refresh-notice" class="notice" hidden>
+            The customer left without buying anything — starting fresh.
+        </div>
+
+        <form id="expense-form" class="form">
+            <div class="inputs">
+                <input type="text" id="name" placeholder="Expense description" maxlength="45" autocomplete="off"
+                    required />
+                <input type="number" id="amount" placeholder="0.00" step="0.01" min="0.01" required />
+            </div>
+            <button type="submit" class="submit-btn">+ Add Expense</button>
+        </form>
+
+        <div class="content">
+            <div class="toolbar">
+                <div class="filters">
+                    <button type="button" class="filter active" data-filter="all">
+                        All <span id="count-all" class="count">0</span>
+                    </button>
+                    <button type="button" class="filter" data-filter="unpaid">
+                        Unpaid <span id="count-unpaid" class="count">0</span>
+                    </button>
+                    <button type="button" class="filter" data-filter="paid">
+                        Paid <span id="count-paid" class="count">0</span>
+                    </button>
+                </div>
+
+                <div class="actions">
+                    <button type="button" id="pay-all" class="action-btn" hidden>Pay All</button>
+                    <button type="button" id="clear-all" class="action-btn" hidden>Clear</button>
+                </div>
+            </div>
+
+            <ul id="list" class="list"></ul>
+        </div>
+
+        <footer class="summary">
+            <div class="progress-info">
+                <span>Payment Progress</span>
+                <span id="percent" class="percent">0%</span>
+            </div>
+            <div class="progress-bar">
+                <div id="progress-fill" class="progress-fill"></div>
+            </div>
+
+            <div class="totals">
+                <div class="total-box">
+                    <span class="label">Total</span>
+                    <span class="value">$<span id="total">0.00</span></span>
+                </div>
+                <div class="total-box">
+                    <span class="label">Paid</span>
+                    <span class="value paid-text">$<span id="paid">0.00</span></span>
+                </div>
+                <div class="total-box remaining-box">
+                    <span class="label">Remaining</span>
+                    <span class="value">$<span id="remaining">0.00</span></span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
